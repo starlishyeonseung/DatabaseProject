@@ -4,8 +4,26 @@ import sqlite3
 app = Flask(__name__)
 
 @app.route('/')
-@app.route('/View')
-def View():
+@app.route('/SeasonView')
+def SeasonView():
+    db = sqlite3.connect("Project.db")
+    db.row_factory = sqlite3.Row
+    Season_Tourspot = db.execute(
+        'SELECT R_season, MAX(T_name) as SeasonPick FROM Registration GROUP BY R_season'
+        ).fetchall()
+    Season_output=''
+
+    for Season_recommend in Season_Tourspot:
+        Season_output += Season_recommend['R_season'] + '<br>'
+        Season_output += Season_recommend['SeasonPick'] + '<br>''<br>'
+
+    db.close()
+    return Season_output
+    
+    
+@app.route('/')
+@app.route('/BestView')
+def BestView():
     db = sqlite3.connect("Project.db")
     db.row_factory = sqlite3.Row
     Best_Tourspot = db.execute(
