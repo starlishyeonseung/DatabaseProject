@@ -10,8 +10,8 @@
     p{
         font-size: x-large;
         text-align: center;
-        width: 500px;
-           border: 5px solid blue;
+        width: 800px;
+           border: 5px solid rgb(0, 255, 221);
                 border-radius: 0px;
                 padding: 0 20px 20px 20px;
 
@@ -20,9 +20,34 @@
     </head>
     <body>
         <h1>관광지를 추천해드립니다</h1>
-        <p>회원등록을 하시겠습니까? <a href='https://google.com'>클릭</a></p>
-        <p>여행을 다녀오셨나요? <a href='https://google.com'>클릭</a></p>
-        <p>여행지를 추천해드려요! <a href='https://google.com'>클릭</a></p>
+    
+        <p>여행을 다녀오셨나요.</p>
+        <form action='/' method="post">
+            <ul>
+                <li>
+                    <label for="P_id">주민등록번호앞자리:</label>
+                    <input type="text" id="P_id" name="P_id">
+                </li>
+                <li>
+                    <label for="T_name">여행지명:</label>
+                    <input type="text" id="T_name" name="T_name">
+                <li>
+                        <label for="R_year">여행년도:</label>
+                        <input type="text" id="R_year" name="R_year">
+                </li>
+                <li>
+                        <label for="">계절:</label>
+                        <input type="text" id="P_country_name" name="P_country_name">
+                </li>
+                </li>
+                <li class="button">
+                    <button type="submit">전송</button>
+                </li>
+            </ul>
+            </form>
+
+        <p>계절별 관광지를 추천해드려요. <a href="localhost:5000/SeasonView">클릭</a></p>
+        <p>가장 많이 여행한 관광지를 추천해드려요. <a href="/localhost:5000/BestView">클릭</a></p>
     </body>
 
 </html>
